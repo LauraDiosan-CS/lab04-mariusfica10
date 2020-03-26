@@ -149,11 +149,15 @@
   <ItemGroup>
     <ClCompile Include="Bank.cpp" />
     <ClCompile Include="lab004.cpp" />
+    <ClCompile Include="Operations.cpp" />
     <ClCompile Include="Repo.cpp" />
+    <ClCompile Include="Service.cpp" />
     <ClCompile Include="Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bank.h" />
+    <ClInclude Include="Operations.h" />
+    <ClInclude Include="Service.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="Repo.h" />
   </ItemGroup>

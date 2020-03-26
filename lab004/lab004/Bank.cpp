@@ -1,21 +1,28 @@
+//clasa banca cu toate tipurile de constructori si operatori
 #include "Bank.h"
 #include <cstddef>
 #include <string.h>
 #include <ostream>
 #include <iostream>
-
 using namespace std;
 
+
+//constructor initial
 Bank::Bank()
 {
+	this->id = 0;
 	this->day = 0;
 	this->money = 0;
 	this->type = NULL;
 	this->desc = NULL;
 }
 
-Bank::Bank(int day, int money, char* type, char* desc)
+
+//constructor implicit
+Bank::Bank(int id, int day, int money, char* type, char* desc)
 {
+	this->id = id;
+
 	this->day = day;
 
 	this->money = money;
@@ -27,8 +34,11 @@ Bank::Bank(int day, int money, char* type, char* desc)
 	strcpy_s(this->desc, 1 + strlen(desc), desc);
 }
 
+//constructor copiere a unui obiect de tip banca
 Bank::Bank(const Bank& b)
 {
+	this->id = b.id;
+
 	this->day = b.day;
 	
 	this->money = b.money;
@@ -42,6 +52,7 @@ Bank::Bank(const Bank& b)
 
 }
 
+// destructor pentru un obiect bank
 Bank::~Bank()
 {
 	if (this->type)
@@ -57,51 +68,72 @@ Bank::~Bank()
 	}
 }
 
+// id cheltuiala
+int Bank::getID() {
+	return this->id;
+}
+
+// cheltuiala cheltuiala
 int Bank::getDay() {
 	return this->day;
 }
 
+//getter suma de bani
 int Bank::getMoney() {
 	return this->money;
 }
 
+//getter tip cheltuiala
 char* Bank::getType() {
 	return this->type;
 }
-
+//getter descriere cheltuiala
 char* Bank::getDesc() {
 	return this->desc;
 }
 
+void Bank::setID(int id)
+{
+	this->id = id;
+}
+
+//setter zi cheltuiala
 void Bank::setDay(int day)
 {
 	this->day = day;
 }
 
+//setter suma de bani
 void Bank::setMoney(int money)
 {
 	this->money = money;
 }
 
+//setter tip cheltuiala
 void Bank::setType(char* type)
 {
-	if (this->type) {
+	if (this->type) 
+	{
 		delete[] this->type;
 	}
 	this->type = new char[strlen(type) + 1];
 	strcpy_s(this->type, strlen(type) + 1, type);
 }
-
+ 
+//setter descriere cheltuiala
 void Bank::setDesc(char* desc)
 {
-	if (this->desc) {
+	if (this->desc) 
+	{
 		delete[] this->desc;
 	}
 	this->desc = new char[strlen(desc) + 1];
 	strcpy_s(this->desc, strlen(desc) + 1, desc);
 }
 
+//operator de copiere valoare
 Bank& Bank::operator=(const Bank& b) {
+	this->setID(b.id);
 	this->setDay(b.day);
 	this->setMoney(b.money);
 	this->setDesc(b.desc);
@@ -109,12 +141,14 @@ Bank& Bank::operator=(const Bank& b) {
 	return *this;
 }
 
+// operator de comparare
 bool Bank:: operator==(const Bank& b) {
-	return strcmp(this->type, b.type) == 0 && strcmp(this->desc, b.desc) == 0 &&  this->day == b.day && this->money == b.money;
+	return strcmp(this->type, b.type) == 0 && strcmp(this->desc, b.desc) == 0 &&  this->day == b.day && this->money == b.money && this->id == b.id ;
 }
 
+//declararea operatie de afisare clasa
 ostream& operator<<(ostream& os, const Bank& b)
 {
-	os << b.day << " " << b.money << " " << b.type << " " << b.desc;
+	os << b.id << " "<< b.day << " " << b.money << " " << b.type << " " << b.desc;
 	return os;
 }
