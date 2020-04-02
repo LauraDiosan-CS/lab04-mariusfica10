@@ -1,0 +1,6 @@
+﻿  UI.cpp
+C:\Users\FIcaegay\source\repos\Lab4-5\Lab4-5\UI.cpp(41,7): warning C4101: 'type': unreferenced local variable
+C:\Users\FIcaegay\source\repos\Lab4-5\Lab4-5\UI.cpp(42,7): warning C4101: 'desc': unreferenced local variable
+C:\Users\FIcaegay\source\repos\Lab4-5\Lab4-5\UI.cpp(223,7): warning C4101: 'type': unreferenced local variable
+C:\Users\FIcaegay\source\repos\Lab4-5\Lab4-5\UI.cpp(224,7): warning C4101: 'desc': unreferenced local variable
+  Lab4-5.vcxproj -> C:\Users\FIcaegay\source\repos\Lab4-5\x64\Debug\Lab4-5.exe
